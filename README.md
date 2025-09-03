@@ -5,7 +5,7 @@
 It offers **empathetic responses, crisis support resources, CBT-style exercises, and daily mood check-ins**, helping users manage emotions and build resilience.  
 
 ⚠️ **Disclaimer**: MindEase is **not a replacement for professional therapy or medical advice**. In crisis situations, always reach out to emergency services or professional hotlines.
-- ** You can integrate LLM infrence using your OpenAI API key **
+- You can integrate LLM Inference using your OpenAI or Hugging Face Inference API key **
 
 ---
 
