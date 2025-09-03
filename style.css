@@ -1350,3 +1350,16 @@ select.form-control {
     box-shadow: 0 0 0 0 rgba(var(--color-error-rgb), 0);
   }
 }
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  z-index: 1000; /* stays above chat */
+}
