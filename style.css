@@ -737,8 +737,7 @@ select.form-control {
     format('woff2');
 }
 
-/* END PERPLEXITY DESIGN SYSTEM */
-/* Additional styles for the mental health chatbot */
+
 
 /* Welcome Screen */
 .welcome-screen {
@@ -748,6 +747,7 @@ select.form-control {
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .welcome-content {
