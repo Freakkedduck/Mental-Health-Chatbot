@@ -772,15 +772,17 @@ select.form-control {
 }
 
 .welcome-content {
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.8); /* semi-transparent off-white */
   padding: var(--space-32);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-card-border);
   box-shadow: var(--shadow-lg);
   max-width: 600px;
   width: 100%;
-  margin: auto;             /* extra guarantee for center */
+  margin: auto;
+  backdrop-filter: blur(10px); /* optional floating look */
 }
+
 
 
 .welcome-content h1 {
@@ -1374,19 +1376,18 @@ select.form-control {
     box-shadow: 0 0 0 0 rgba(var(--color-error-rgb), 0);
   }
 }
-.app-footer {
+.built-by {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.7); /* semi-transparent white */
-  border-top: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
+  bottom: 10px;
+  right: 15px;
   font-size: 14px;
-  backdrop-filter: blur(6px); /* glassy floating effect */
-  -webkit-backdrop-filter: blur(6px); /* for Safari */
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.6); /* semi-transparent background */
+  padding: 4px 8px;
+  border-radius: 6px;
+  backdrop-filter: blur(6px); /* glass effect */
+  -webkit-backdrop-filter: blur(6px);
   z-index: 1000;
 }
+
 
