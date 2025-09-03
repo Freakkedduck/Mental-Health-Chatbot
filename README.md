@@ -1,7 +1,7 @@
 # MindEase – Mental Health Companion
 
 ## Overview
-**MindEase** is a web-based AI-powered mental health chatbot designed to provide a safe, supportive space for users to express their feelings.  
+**MindEase** is a Static web-based AI-powered mental health chatbot designed to provide a safe, supportive space for users to express their feelings.  
 It offers **empathetic responses, crisis support resources, CBT-style exercises, and daily mood check-ins**, helping users manage emotions and build resilience.  
 
 ⚠️ **Disclaimer**: MindEase is **not a replacement for professional therapy or medical advice**. In crisis situations, always reach out to emergency services or professional hotlines.
