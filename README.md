@@ -1,4 +1,4 @@
-# MindEase – Mental Health Companion
+# [MindEase – Mental Health Companion](https://freakkedduck.github.io/Mental-Health-Chatbot/)
 
 ## Overview
 **MindEase** is a Static web-based AI-powered mental health chatbot designed to provide a safe, supportive space for users to express their feelings.  
