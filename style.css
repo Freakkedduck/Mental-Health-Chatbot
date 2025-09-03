@@ -740,7 +740,7 @@ select.form-control {
 
 
 /* Welcome Screen */
-.welcome-screen {
+/* .welcome-screen {
   min-height: 100vh;
   padding: var(--space-32) var(--space-16);
   background: var(--color-bg-3);
@@ -758,7 +758,30 @@ select.form-control {
   box-shadow: var(--shadow-lg);
   max-width: 600px;
   width: 100%;
+} */
+/* Welcome Screen */
+.welcome-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+  background: var(--color-bg-3);
+  padding: 0;               /* remove extra padding that was pushing content */
+  margin: 0;
+  text-align: center;       /* center all text inside */
 }
+
+.welcome-content {
+  background: var(--color-surface);
+  padding: var(--space-32);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-lg);
+  max-width: 600px;
+  width: 100%;
+  margin: auto;             /* extra guarantee for center */
+}
+
 
 .welcome-content h1 {
   text-align: center;
