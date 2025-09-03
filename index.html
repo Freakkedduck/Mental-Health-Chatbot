@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen" class="welcome-screen">
+        <div class="container">
+            <div class="welcome-content">
+                <h1>Mental Health Support Companion</h1>
+                <div class="disclaimer">
+                    <div class="disclaimer-box">
+                        <h3>⚠️ Important Disclaimer</h3>
+                        <p>This is an AI-powered support tool, <strong>not a replacement for professional therapy or medical care</strong>. If you're experiencing a mental health crisis, please contact emergency services or a crisis hotline immediately.</p>
+                    </div>
+                </div>
+                
+                <div class="privacy-section">
+                    <h3>Privacy & Data</h3>
+                    <p>Your privacy is important to us. This tool:</p>
+                    <ul>
+                        <li>Does not store conversations by default</li>
+                        <li>Allows anonymous usage</li>
+                        <li>Requires your consent for any data storage</li>
+                        <li>Provides crisis resources when needed</li>
+                    </ul>
+                </div>
+
+                <div class="user-setup">
+                    <div class="form-group">
+                        <label class="form-label">How would you like to be addressed?</label>
+                        <div class="radio-group">
+                            <input type="radio" id="anonymous" name="userType" value="anonymous" checked>
+                            <label for="anonymous">Stay anonymous</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="username" name="userType" value="username">
+                            <label for="username">Enter a name</label>
+                        </div>
+                    </div>
+                    
+                    <div id="username-input" class="form-group hidden">
+                        <input type="text" id="userNameField" class="form-control" placeholder="Enter your preferred name" maxlength="20">
+                    </div>
+
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="saveHistory" name="saveHistory">
+                            <label for="saveHistory">Save my conversation history (optional)</label>
+                        </div>
+                        <small>If unchecked, conversations will be deleted when you close the browser.</small>
+                    </div>
+
+                    <div class="consent-section">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent">I understand this is an AI tool and consent to using it for mental health support</label>
+                        </div>
+                    </div>
+
+                    <button id="start-chat" class="btn btn--primary btn--full-width" disabled>Start Conversation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Chat Interface -->
+    <div id="chat-interface" class="chat-interface hidden">
+        <div class="chat-container">
+            <!-- Header -->
+            <header class="chat-header">
+                <div class="header-content">
+                    <h2>Mental Health Support</h2>
+                    <div class="header-actions">
+                        <button id="mood-tracker-btn" class="btn btn--sm btn--outline">Track Mood</button>
+                        <button id="crisis-resources-btn" class="btn btn--sm btn--outline">Crisis Help</button>
+                        <button id="settings-btn" class="btn btn--sm btn--outline">Settings</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="chat-main">
+                <!-- Chat Messages -->
+                <div class="chat-messages-container">
+                    <div id="chat-messages" class="chat-messages">
+                        <!-- Messages will be added here -->
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-content">
+                        <h3>Crisis Resources</h3>
+                        <div id="crisis-resources-list" class="crisis-resources">
+                            <!-- Crisis resources will be populated here -->
+                        </div>
+
+                        <div class="cbt-exercises">
+                            <h4>Quick Exercises</h4>
+                            <div id="exercise-buttons">
+                                <!-- Exercise buttons will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <div class="chat-input">
+                    <textarea id="message-input" class="form-control" placeholder="Share what's on your mind..." rows="2"></textarea>
+                    <button id="send-btn" class="btn btn--primary">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    
+    <!-- Crisis Modal -->
+    <div id="crisis-modal" class="modal hidden">
+        <div class="modal-content crisis-modal-content">
+            <div class="crisis-alert">
+                <h2>🚨 Crisis Support Available</h2>
+                <p class="crisis-message">I'm concerned about what you've shared. Your life has value, and there are people who want to help you right now.</p>
+                
+                <div class="crisis-actions">
+                    <div class="crisis-resources-urgent">
+                        <h3>Get Help Now:</h3>
+                        <div id="crisis-modal-resources">
+                            <!-- Crisis resources will be populated here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="crisis-footer">
+                    <button id="crisis-continue" class="btn btn--secondary">Continue Conversation</button>
+                    <button id="crisis-close" class="btn btn--outline">I'm Safe For Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mood Tracker Modal -->
+    <div id="mood-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>How are you feeling right now?</h3>
+                <button class="modal-close" data-modal="mood-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="mood-scale">
+                    <div class="mood-option" data-mood="1">
+                        <div class="mood-emoji">😢</div>
+                        <span>Very Low</span>
+                    </div>
+                    <div class="mood-option" data-mood="2">
+                        <div class="mood-emoji">😞</div>
+                        <span>Low</span>
+                    </div>
+                    <div class="mood-option" data-mood="3">
+                        <div class="mood-emoji">😐</div>
+                        <span>Neutral</span>
+                    </div>
+                    <div class="mood-option" data-mood="4">
+                        <div class="mood-emoji">🙂</div>
+                        <span>Good</span>
+                    </div>
+                    <div class="mood-option" data-mood="5">
+                        <div class="mood-emoji">😄</div>
+                        <span>Very Good</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exercise Modal -->
+    <div id="exercise-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="exercise-title">Exercise</h3>
+                <button class="modal-close" data-modal="exercise-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="exercise-content">
+                    <!-- Exercise content will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <button class="modal-close" data-modal="settings-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Data Storage</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="settings-save-history">
+                        <label for="settings-save-history">Save conversation history</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Check-in Reminders</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="daily-checkin">
+                        <label for="daily-checkin">Daily mood check-ins</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button id="clear-history" class="btn btn--outline">Clear Conversation History</button>
+                </div>
+
+                <div class="settings-footer">
+                    <button class="btn btn--primary modal-close" data-modal="settings-modal">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
